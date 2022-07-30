@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--    开启驼峰命名，数据库a_bval 对应对象的 aBval 属性
+        settings要写在配置文件的第一行才行，不然报错
+        PS：
+            mybaits-config.xml 里面的节点的顺序为：
+            properties > settings > typeAliases >
+            typeHandlers > objectFactory > objectWrapperFactory >
+            reflectorFactory > plugins > environments >
+            databaseIdProvider > mappers
+            节点可以少，但是节点顺序不可以乱！！！否则报错
+-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <!--起别名-->
+    <typeAliases>
+        <package name="cn.imerji.user.pojo"/>
+    </typeAliases>
+
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql:///db1?useSSL=false&amp;useServerPrepStmts=true"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+        <environment id="run">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql:///sys_db?useSSL=false&amp;useServerPrepStmts=true"/>
+                <property name="username" value="sys_db"/>
+                <property name="password" value="WxL3ycAS2ZwJX4bP"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!--扫描mapper-->
+        <package name="cn.imerji.mapper"/>
+    </mappers>
+</configuration>

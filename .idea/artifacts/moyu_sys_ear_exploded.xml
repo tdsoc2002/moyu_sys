@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="moyu_sys:ear exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/moyu_sys_ear_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="moyu_sys/javaeeApplication/javaEEApplication" />
+    </root>
+  </artifact>
+</component>
