@@ -16,7 +16,6 @@ protected void service(HttpServletRequest req, HttpServletResponse resp) throws 
     //设置编码格式
     req.setCharacterEncoding("utf-8");
     resp.setCharacterEncoding("UTF-8");
-
     //1. 获取请求路径
     String uri = req.getRequestURI(); // 例如路径为：/brand-case/brand/selectAll
     //2. 获取最后一段路径，方法名

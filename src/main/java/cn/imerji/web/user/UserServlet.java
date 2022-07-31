@@ -188,6 +188,7 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //设置编码格式
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("UTF-8");
         //判断是否已经登录
