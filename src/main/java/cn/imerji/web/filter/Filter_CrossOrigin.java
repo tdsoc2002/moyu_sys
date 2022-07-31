@@ -2,6 +2,7 @@ package cn.imerji.web.filter;
 
 import javax.servlet.*;
 import javax.servlet.annotation.*;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -23,8 +24,14 @@ public class Filter_CrossOrigin implements Filter {
         response1.setHeader("Access-Control-Max-Age", "3600");
         response1.setHeader("Access-Control-Allow-Headers", "x-requested-with, Content-Type");
         response1.setHeader("Access-Control-Allow-Credentials", "true");
+
+        response1.addHeader("Set-Cookie", String.format("%s; %s", String.format("JSESSIONID=%s; Max-Age=%s; Path=/;%s HttpOnly", request1.getSession().getId(), 3600, " Secure;"), "SameSite=None"));
+
+
+
         chain.doFilter(request1, response1);
     }
+
 }
 
 
